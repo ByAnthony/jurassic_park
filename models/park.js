@@ -28,4 +28,32 @@ Park.prototype.findBySpecies = function(species){
     return bySpecies;
 };
 
+Park.prototype.totalVisitorsPerDay = function(){
+    let total = 0;
+    for (const dinosaur of this.dinosaurs){
+        total += dinosaur.guestsAttractedPerDay
+    }
+    return total;
+};
+
+Park.prototype.totalVisitorsPerYear = function(){
+    let total = this.totalVisitorsPerDay() * 365;
+    return total;
+};
+
+Park.prototype.totalRevenueForOneYear = function(){
+    let total = this.totalVisitorsPerYear() * this.ticket;
+    return total;
+};
+
+Park.prototype.removeAllDinosaursOfParticularSpecies = function(species){
+    const removeBySpecies = [];
+    for (const dinosaur of this.dinosaurs){
+        if (dinosaur.species !== species){
+            removeBySpecies.push(dinosaur);
+        }
+    }
+    return removeBySpecies;
+};
+
 module.exports = Park;
