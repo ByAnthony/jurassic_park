@@ -44,40 +44,40 @@ describe('Park', function() {
   it('should be able to remove a dinosaur from its collection', function(){
     park.addDinosaur('Velociraptor', 'carnivore', 60);
     park.removeDinosaur('Velociraptor', 'carnivore', 60);
-    const expected = dinosaurs;
     const actual = park.dinosaurs;
+    const expected = dinosaurs;
     assert.deepEqual(actual, expected);
   });
 
   it('should be able to find the dinosaur that attracts the most visitors', function(){
-    actual = dinosaur1;
-    expected = park.findMostLovedDinosaur()
+    actual = park.findMostLovedDinosaur()
+    expected = dinosaur1;
     assert.strictEqual(actual, expected);
   });
 
   it('should be able to find all dinosaurs of a particular species', function(){
     park.addDinosaur(velociraptor1);
     park.addDinosaur(velociraptor2);
-    actual = [velociraptor1, velociraptor2]
-    expected = park.findBySpecies('velociraptor');
+    actual = park.findBySpecies('velociraptor');
+    expected = [velociraptor1, velociraptor2]
     assert.deepStrictEqual(actual, expected);
   });
 
   it('should be able to calculate the total number of visitors per day', function(){
-    actual = 150;
-    expected = park.totalVisitorsPerDay();
+    actual = park.totalVisitorsPerDay();
+    expected = 150;
     assert.strictEqual(actual, expected);
   });
 
   it('should be able to calculate the total number of visitors per year', function(){
-    actual = 54750;
-    expected = park.totalVisitorsPerYear();
+    actual = park.totalVisitorsPerYear();
+    expected = 54750;
     assert.strictEqual(actual, expected);
   });
 
   it('should be able to calculate total revenue for one year', function(){
-    actual = 2737500;
-    expected = park.totalRevenueForOneYear();
+    actual = park.totalRevenueForOneYear();
+    expected = 2737500;
     assert.strictEqual(actual, expected);
   });
 
@@ -87,6 +87,14 @@ describe('Park', function() {
     park.removeAllDinosaursOfParticularSpecies('velociraptor');
     actual = park.dinosaurs;
     expected = dinosaurs;
+    assert.deepStrictEqual(actual, expected);
+  });
+
+  it('should be able to calculate number of dinosaurs by diet', function(){
+    park.addDinosaur(velociraptor1);
+    park.addDinosaur(velociraptor2);
+    actual = { carnivore: 3, herbivore: 1, omnivore: 1 }
+    expected = park.numberOfDinosaursByDiet();
     assert.deepStrictEqual(actual, expected);
   });
 

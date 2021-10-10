@@ -56,4 +56,17 @@ Park.prototype.removeAllDinosaursOfParticularSpecies = function(species){
     return removeBySpecies;
 };
 
+Park.prototype.numberOfDinosaursByDiet = function(){
+    const dinosaursByDiet = {};
+    for (const dinosaur of this.dinosaurs){
+        if (dinosaursByDiet[dinosaur.diet]){
+            dinosaursByDiet[dinosaur.diet] += 1;
+        }
+        else{
+            dinosaursByDiet[dinosaur.diet] = 1;
+        }
+    }
+    return dinosaursByDiet;
+};
+
 module.exports = Park;
