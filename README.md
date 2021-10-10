@@ -28,3 +28,9 @@ A park must be able to:
 - Calculate the total number of visitors per day;
 - Calculate the total number of visitors per year;
 - Calculate the total revenue from ticket sales for one year.
+
+### Extensions
+
+A park must be able to:
+- Remove all dinosaurs of a particular species;
+- Provide an object containing each of the diet types and the number of dinosaurs in the park of that diet type: ```{ 'carnivore': 5, 'herbivore': 2, 'omnivore': 1 }```
